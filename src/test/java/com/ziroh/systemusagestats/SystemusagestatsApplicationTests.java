@@ -45,10 +45,10 @@ class SystemusagestatsApplicationTests {
 
     @Test
     void fetch() {
-        Iterable<SystemUsageStats> systemUsageStats = systemInfoManager.getSystemInfoByTime(1605765834, 1605765843);
+        Iterable<SystemUsageStats> systemUsageStats = systemInfoManager.getALLSystemInfo();
         for (SystemUsageStats systemUsageStats1 : systemUsageStats) {
             System.out.println(systemUsageStats1.getTime() + " " +
-                    systemUsageStats1.getTotalCPUs());
+                    systemUsageStats1.getTotalCPUs() + " " + systemUsageStats1.getMemoryUsageInApp() + " " + systemUsageStats1.getCpuUsageInApp());
             ;
         }
     }
@@ -61,7 +61,7 @@ class SystemusagestatsApplicationTests {
     @Test
     void process() throws InterruptedException {
         for (int i = 1; i < 10; i++) {
-            System.out.println(systemInformation.getCPUUsageInApp());
+            System.out.println(systemInformation.getCPUUsage());
             Thread.sleep(3000);
         }
     }
